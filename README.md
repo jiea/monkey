@@ -1,1 +1,1 @@
-仿照renren-security项目，自己联系用
+仿照renren-security项目，自己练习使用
