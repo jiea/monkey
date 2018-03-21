@@ -136,7 +136,7 @@ var vm = new Vue({
 				vm.user = r.user;
 			});
 		},
-		updatePassword: function(){
+		modifyPassword: function(){
 			layer.open({
 				type: 1,
 				skin: 'layui-layer-molv',
