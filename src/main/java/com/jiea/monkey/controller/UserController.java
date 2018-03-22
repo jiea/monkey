@@ -9,6 +9,6 @@ public class UserController {
 
     @RequestMapping("modifyPassword")
     public String modifyPassword(String oldPassword, String newPassword){
-
+        return null;
     }
 }
