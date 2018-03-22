@@ -1,4 +1,4 @@
-package com.jiea.monkey.common.util;
+package com.jiea.monkey.shiro;
 
 import com.jiea.monkey.domain.User;
 import org.apache.shiro.SecurityUtils;
