@@ -1,12 +1,16 @@
 package com.jiea.monkey.shiro;
 
+import com.jiea.monkey.common.exception.MonkeyException;
 import com.jiea.monkey.domain.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
-public class ShiroUtil {
+import java.security.Key;
+import java.util.Objects;
+
+public class ShiroUtils {
     // 加密算法
     public static final String hashAlgorithmName = "SHA-256";
     // 循环次数
@@ -34,5 +38,18 @@ public class ShiroUtil {
 
     public static Object getSessionAttribute(Object key){
         return getSession().getAttribute(key);
+    }
+
+    public static Object removeSession(Object key){
+        return getSession().removeAttribute(key);
+    }
+
+    public static String getKaptcha(String key){
+        Object kaptcha = getSessionAttribute(key);
+        if(Objects.isNull(kaptcha)){
+            throw new MonkeyException("验证码已失效");
+        }
+        removeSession(key);
+        return kaptcha.toString();
     }
 }
