@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Monkey</title>
+  <title>人人权限系统</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
@@ -22,9 +21,9 @@
   <![endif]-->
 </head>
 <body class="hold-transition login-page">
-<div class="login-box" id="monkeylogin" v-cloak>
+<div class="login-box" id="rrapp" v-cloak>
   <div class="login-logo">
-    <b>Monkey</b>
+    <b>人人权限系统</b>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
@@ -67,22 +66,22 @@
   <!-- /.login-box-body -->
 </div>
 <!-- /.login-box -->
-<script th:src="@{/libs/jquery.min.js}"></script>
-<script th:src="@{/libs/vue.min.js}"></script>
-<script th:src="@{/libs/bootstrap.min.js}"></script>
-<script th:src="@{/libs/jquery.slimscroll.min.js}"></script>
-<script th:src="@{/libs/fastclick.min.js}"></script>
-<script th:src="@{/libs/app.js}"></script>
+<script th:src="@{/statics/libs/jquery.min.js}"></script>
+<script th:src="@{/statics/libs/vue.min.js}"></script>
+<script th:src="@{/statics/libs/bootstrap.min.js}"></script>
+<script th:src="@{/statics/libs/jquery.slimscroll.min.js}"></script>
+<script th:src="@{/statics/libs/fastclick.min.js}"></script>
+<script th:src="@{/statics/libs/app.js}"></script>
 <script type="text/javascript">
 var vm = new Vue({
-	el:'#monkeylogin',
+	el:'#rrapp',
 	data:{
 		username: '',
 		password: '',
 		captcha: '',
 		error: false,
 		errorMsg: '',
-		src: 'captcha'
+		src: 'captcha.jpg'
 	},
 	beforeCreate: function(){
 		if(self != top){
@@ -91,7 +90,7 @@ var vm = new Vue({
 	},
 	methods: {
 		refreshCode: function(){
-			this.src = "captcha?t=" + $.now();
+			this.src = "captcha.jpg?t=" + $.now();
 		},
 		login: function (event) {
 			var data = "username="+vm.username+"&password="+vm.password+"&captcha="+vm.captcha;
