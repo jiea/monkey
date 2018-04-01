@@ -90,8 +90,6 @@ layui.use(['jquery','layer','element'],function(){
 	});
 });
 
-
-
 //生成菜单
 var menuItem = Vue.extend({
 	name: 'menu-item',
@@ -127,7 +125,7 @@ var vm = new Vue({
 	},
 	methods: {
 		getMenuList: function () {
-			$.getJSON("sys/menu/nav?_"+$.now(), function(r){
+			$.getJSON("/menu/nav?_"+$.now(), function(r){
 				vm.menuList = r.menuList;
 			});
 		},

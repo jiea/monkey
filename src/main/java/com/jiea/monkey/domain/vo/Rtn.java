@@ -1,6 +1,8 @@
 package com.jiea.monkey.domain.vo;
 
-public class Rtn {
+import java.util.HashMap;
+
+public class Rtn extends HashMap<String, Object>{
 
     private Integer code;
 
@@ -45,5 +47,11 @@ public class Rtn {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    @Override
+    public Rtn put(String key, Object value){
+        super.put(key, value);
+        return this;
     }
 }

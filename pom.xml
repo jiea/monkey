@@ -25,6 +25,7 @@
 		
 		<kaptcha.version>0.0.9</kaptcha.version>
 		<shiro.version>1.4.0</shiro.version>
+		<guava.version>24.1-jre</guava.version>
 	</properties>
 
 	<dependencies>
@@ -75,6 +76,11 @@
 			<groupId>com.github.axet</groupId>
 			<artifactId>kaptcha</artifactId>
 			<version>${kaptcha.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
 		</dependency>
 	</dependencies>
 
