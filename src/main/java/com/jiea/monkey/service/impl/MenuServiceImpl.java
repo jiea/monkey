@@ -21,9 +21,10 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public List<Menu> getUserMenuList(Integer userId) {
 		// 系统管理员
-		if(Constant.ADMIN == userId){
+		/*if(Constant.ADMIN == userId){
 			return getAllMenus(null);
-		}
+		}*/
+		userId = 1;
 
 		// 普通用户菜单列表
 		List<Integer> menuIds = menuMapper.queryMenuIdsByUserId(userId);

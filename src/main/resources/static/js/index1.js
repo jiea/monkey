@@ -1,5 +1,5 @@
 layui.config({
-  base:'statics/js/'
+  base:'/js/'
 }).use(['navtab'],function(){
 	window.jQuery = window.$ = layui.jquery;
 	window.layer = layui.layer;
@@ -96,17 +96,17 @@ var menuItem = Vue.extend({
 	props:{item:{}},
 	template:[
 	          '<li class="layui-nav-item">',
-	          '<a v-if="item.type === 0" href="javascript:;">',
+	          '<a v-if="item.menuType === 0" href="javascript:;">',
 	          '<i v-if="item.icon != null" :class="item.icon"></i>',
-	          '<span>{{item.name}}</span>',
+	          '<span>{{item.menuName}}</span>',
 	          '<em class="layui-nav-more"></em>',
 	          '</a>',
-	          '<dl v-if="item.type === 0" class="layui-nav-child">',
+	          '<dl v-if="item.menuType === 0" class="layui-nav-child">',
 	          '<dd v-for="item in item.list">',
-	          '<a v-if="item.type === 1" href="javascript:;" :data-url="item.url"><i v-if="item.icon != null" :class="item.icon" :data-icon="item.icon"></i> <span>{{item.name}}</span></a>',
+	          '<a v-if="item.menuType === 1" href="javascript:;" :data-url="item.url"><i v-if="item.icon != null" :class="item.icon" :data-icon="item.icon"></i> <span>{{item.menuName}}</span></a>',
 	          '</dd>',
 	          '</dl>',
-	          '<a v-if="item.type === 1" href="javascript:;" :data-url="item.url"><i v-if="item.icon != null" :class="item.icon" :data-icon="item.icon"></i> <span>{{item.name}}</span></a>',
+	          '<a v-if="item.menuType === 1" href="javascript:;" :data-url="item.url"><i v-if="item.icon != null" :class="item.icon" :data-icon="item.icon"></i> <span>{{item.menuName}}</span></a>',
 	          '</li>'
 	].join('')
 });
@@ -125,10 +125,11 @@ var vm = new Vue({
 	},
 	methods: {
 		getMenuList: function () {
-			$.getJSON("/menu/nav?_"+$.now(), function(r){
-				vm.menuList = r.menuList;
+            $.getJSON("/menu/nav?_"+$.now(), function(r){
+				vm.menuList = r.menus;
+                console.info(r.menus);
 			});
-		},
+        },
 		getUser: function(){
 			$.getJSON("sys/user/info?_"+$.now(), function(r){
 				vm.user = r.user;

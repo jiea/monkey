@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -22,8 +23,9 @@ public class MenuController extends AbstractController {
 	 * @return
 	 */
 	@GetMapping("nav")
+	@ResponseBody
 	public Rtn nav(){
-		List<Menu> menus = menuService.getUserMenuList(super.getUesrId());
+		List<Menu> menus = menuService.getUserMenuList(1);
 		return Rtn.ok().put("menus", menus);
 	}
 }

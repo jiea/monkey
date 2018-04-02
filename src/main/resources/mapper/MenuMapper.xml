@@ -22,7 +22,9 @@
     </select>
     
     <select id="queryMenusByParentId" resultType="com.jiea.monkey.domain.Menu">
-        SELECT * FROM sys_menu m WHERE m.parent_id = #{parent_id} ORDER BY m.order_num
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sys_menu m WHERE m.parent_id = #{parent_id} ORDER BY m.order_num
     </select>
     
     <select id="queryMenuIdsByUserId" resultType="java.lang.Integer">

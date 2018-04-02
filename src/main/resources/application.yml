@@ -29,4 +29,6 @@ spring:
 mybatis:
   mapper-locations: mapper/*.xml
   type-aliases-package: com.jiea.monkey.domain
+  configuration:
+    map-underscore-to-camel-case: true
 
