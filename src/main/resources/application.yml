@@ -1,6 +1,9 @@
 server:
   port: 8090
 spring:
+  profiles:
+    active: dev
+
   datasource:
     url: jdbc:mysql://localhost:3306/monkey?useUnicode=true&characterEncoding=utf-8
     username: root
@@ -31,4 +34,8 @@ mybatis:
   type-aliases-package: com.jiea.monkey.domain
   configuration:
     map-underscore-to-camel-case: true
+
+
+
+
 
