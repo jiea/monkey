@@ -28,4 +28,5 @@ public class MenuController extends AbstractController {
 		List<Menu> menus = menuService.getUserMenuList(1);
 		return Rtn.ok().put("menus", menus);
 	}
+
 }
