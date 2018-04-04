@@ -25,4 +25,10 @@ public interface MenuMapper {
      * @return
      */
     List<Integer> queryMenuIdsByUserId(Integer userId);
+
+    /**
+     * 获取所有的菜单
+     * @return
+     */
+    List<Menu> getMenus();
 }

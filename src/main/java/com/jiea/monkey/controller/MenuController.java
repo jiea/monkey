@@ -29,4 +29,16 @@ public class MenuController extends AbstractController {
 		return Rtn.ok().put("menus", menus);
 	}
 
+	@GetMapping("")
+	public String go(){
+		return "/modules/sys/menu";
+	}
+
+	@GetMapping("list")
+    @ResponseBody
+	public List<Menu> list(){
+		List<Menu> menus = menuService.getMenus();
+		return menus;
+	}
+
 }

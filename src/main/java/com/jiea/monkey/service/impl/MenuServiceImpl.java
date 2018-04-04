@@ -31,6 +31,11 @@ public class MenuServiceImpl implements MenuService {
 		return getAllMenus(menuIds);
 	}
 
+	@Override
+	public List<Menu> getMenus() {
+		return menuMapper.getMenus();
+	}
+
 
 	public List<Menu> getAllMenus(List<Integer> menuIds){
 		// 查询根菜单列表

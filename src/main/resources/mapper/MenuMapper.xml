@@ -30,7 +30,13 @@
     <select id="queryMenuIdsByUserId" resultType="java.lang.Integer">
         SELECT DISTINCT mr.menu_id FROM sys_user_role ur JOIN sys_menu_role mr ON ur.role_id = mr.role_id WHERE ur.user_id = #{userId}
     </select>
-    
+
+    <select id="getMenus" resultType="com.jiea.monkey.domain.Menu">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM sys_menu ORDER BY order_num
+    </select>
+
     <insert id="insertSelective" parameterType="com.jiea.monkey.domain.Menu">
         insert into sys_menu
         <trim prefix="(" suffix=")" suffixOverrides=",">

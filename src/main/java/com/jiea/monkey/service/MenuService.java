@@ -12,4 +12,10 @@ public interface MenuService {
 	 * @return
 	 */
 	List<Menu> getUserMenuList(Integer uesrId);
+
+	/**
+	 * 获取所有的菜单
+	 * @return
+	 */
+	List<Menu> getMenus();
 }
